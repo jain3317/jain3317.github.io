@@ -3,21 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>&#39;redis5单机多节点集群&#39; | Hexo</title>
+  <title>centos7安装tomcat8 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="Jain的博客" />
   
-  <meta name="description" content="根目录创建文件夹 1mkdir redis_cluster   进入 redis_cluster 分别创建6个文件夹 1mkdir 7001 7002 7003 7004 7005 7006  从前面安装的redis文件夹中拷贝一份redis.conf到7001文件夹 1cp redis-5.0.8&#x2F;redis.conf  &#x2F;root&#x2F;redis_cluster&amp;#x">
+  <meta name="description" content="创建 &#x2F;home&#x2F;data&#x2F;tomcat文件夹去官网下载tomcat8.tar.gz的压缩包通过fpt传送到tomcat文件夹tar -zxvf 文件名修改默认端口号解压之后打开解压后的文件夹&#x2F;conf&#x2F;server.xml搜索&#x2F;&lt;Connector port&#x3D;”8080”修改8080为80注意！修改的是注释外的内容保存退出 :wq放通80端口firewall-cmd –zone&#x3D;publi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;redis5单机多节点集群&#39;">
-<meta property="og:url" content="http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/index.html">
+<meta property="og:title" content="centos7安装tomcat8">
+<meta property="og:url" content="http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="根目录创建文件夹 1mkdir redis_cluster   进入 redis_cluster 分别创建6个文件夹 1mkdir 7001 7002 7003 7004 7005 7006  从前面安装的redis文件夹中拷贝一份redis.conf到7001文件夹 1cp redis-5.0.8&#x2F;redis.conf  &#x2F;root&#x2F;redis_cluster&amp;#x">
+<meta property="og:description" content="创建 &#x2F;home&#x2F;data&#x2F;tomcat文件夹去官网下载tomcat8.tar.gz的压缩包通过fpt传送到tomcat文件夹tar -zxvf 文件名修改默认端口号解压之后打开解压后的文件夹&#x2F;conf&#x2F;server.xml搜索&#x2F;&lt;Connector port&#x3D;”8080”修改8080为80注意！修改的是注释外的内容保存退出 :wq放通80端口firewall-cmd –zone&#x3D;publi">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2020-05-13T16:09:54.000Z">
-<meta property="article:modified_time" content="2020-05-13T16:12:09.950Z">
+<meta property="article:published_time" content="2020-05-13T15:02:04.000Z">
+<meta property="article:modified_time" content="2020-05-14T01:40:33.870Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="centos7">
 <meta name="twitter:card" content="summary">
   
   
@@ -113,20 +114,20 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-redis5单机多节点集群" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-centos7安装tomcat8" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      &#39;redis5单机多节点集群&#39;
+      centos7安装tomcat8
     </h1>
     <div class="post-title-bar">
       <ul>
           
         <li>
-          <i class="fa fa-calendar"></i>  2020-05-14
+          <i class="fa fa-calendar"></i>  2020-05-13
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -142,38 +143,13 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <p>根目录创建文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir redis_cluster</span><br></pre></td></tr></table></figure>
-
-
-<p>进入 redis_cluster 分别创建6个文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir 7001 7002 7003 7004 7005 7006</span><br></pre></td></tr></table></figure>
-
-<p>从前面安装的redis文件夹中拷贝一份redis.conf到7001文件夹</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp redis-5.0.8&#x2F;redis.conf  &#x2F;root&#x2F;redis_cluster&#x2F;7001</span><br></pre></td></tr></table></figure>
-
-<p>修改</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">port 7001 #端口</span><br><span class="line">cluster-enabled yes #启用集群模式</span><br><span class="line">cluster-config-file nodes_7001.conf</span><br><span class="line">cluster-node-timeout 5000 #超时时间</span><br><span class="line">appendonly yes</span><br><span class="line">daemonize yes #后台运行</span><br><span class="line">protected-mode no #非保护模式</span><br><span class="line">pidfile &#x2F;var&#x2F;run&#x2F;redis_7001.pid</span><br></pre></td></tr></table></figure>
-
-
-<p>再复制到 7002-7006分别修改port,cluster-config,pidfile为7002-7006</p>
-<p>完事了之后，依次启动redis服务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;root&#x2F;redis_cluster&#x2F;7001&#x2F;redis.conf</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;root&#x2F;redis_cluster&#x2F;7002&#x2F;redis.conf</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;root&#x2F;redis_cluster&#x2F;7003&#x2F;redis.conf</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;root&#x2F;redis_cluster&#x2F;7004&#x2F;redis.conf</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;root&#x2F;redis_cluster&#x2F;7005&#x2F;redis.conf</span><br><span class="line">&#x2F;usr&#x2F;local&#x2F;redis&#x2F;bin&#x2F;redis-server &#x2F;root&#x2F;redis_cluster&#x2F;7006&#x2F;redis.conf</span><br></pre></td></tr></table></figure>
-
-
-<p>查看是否启动成功</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -ef | grep redis</span><br></pre></td></tr></table></figure>
-
-
-<p>启动之后就可以集群了（Redis5之后直接用redis自带的redis-cli就可以了，redis3-4需要安装ruby脚本）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;root&#x2F;redis-5.0.8&#x2F;src&#x2F;redis-cli --cluster create 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005 127.0.0.1:7006 --cluster-replicas 1</span><br></pre></td></tr></table></figure>
-
-<p>期间会询问你是否同意redis的主从模式的建议输入yes即可</p>
+            <p>创建 /home/data/tomcat文件夹去官网下载tomcat8.tar.gz的压缩包通过fpt传送到tomcat文件夹tar -zxvf 文件名修改默认端口号解压之后打开解压后的文件夹/conf/server.xml<br>搜索/&lt;Connector port=”8080”<br>修改8080为80<br>注意！修改的是注释外的内容<br>保存退出 :wq<br>放通80端口<br>firewall-cmd –zone=public –add-port=80/tcp -permanentfireewall-cmd –reload</p>
+<p>在本地访问 http//ip如果显示tomcat首页代表安装成功</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2020年05月14日 00:12</p>
-        <p>原始链接： <a class="post-url" href="/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/" title="&#39;redis5单机多节点集群&#39;">http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/</a></p>
+        <p>最后更新： 2020年05月14日 09:40</p>
+        <p>原始链接： <a class="post-url" href="/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/" title="centos7安装tomcat8">http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/</a></p>
         <footer>
             <a href="http://yoursite.com">
                 <img src="/images/jain.png" alt="John Doe">
@@ -230,7 +206,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/&title=《'redis5单机多节点集群'》 — Hexo&pic=http://yoursite.comimages/jain.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/&title=《centos7安装tomcat8》 — Hexo&pic=http://yoursite.comimages/jain.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -240,22 +216,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/&title=《'redis5单机多节点集群'》 — Hexo&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/&title=《centos7安装tomcat8》 — Hexo&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《'redis5单机多节点集群'》 — Hexo&url=http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/&via=http://yoursite.com" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《centos7安装tomcat8》 — Hexo&url=http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/&via=http://yoursite.com" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -265,7 +241,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/05/14/redis5%E5%8D%95%E6%9C%BA%E5%A4%9A%E8%8A%82%E7%82%B9%E9%9B%86%E7%BE%A4/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2020/05/13/centos7%E5%AE%89%E8%A3%85tomcat8/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -274,6 +250,13 @@
         <ul class="article-footer-menu">
             
             
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/tags/centos7/" class="color3">centos7</a>
+      
+  </li>
+
         </ul>
         
     </footer>
@@ -284,9 +267,19 @@
 
 <nav id="article-nav">
   
+    <a href="/2020/05/13/%E7%9B%AE%E5%BD%95%E4%BB%8B%E7%BB%8D/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          &#39;目录介绍&#39;
+        
+      </span>
+    </a>
   
-    <a href="/2020/05/13/%E6%88%91%E7%9A%84%E5%8D%9A%E5%AE%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">&#39;我的博客&#39;</span>
+  
+    <a href="/2020/05/13/centos7%E5%AE%89%E8%A3%85mysql5.7/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">centos7安装mysql5.7</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
